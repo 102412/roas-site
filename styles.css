@@ -301,55 +301,26 @@ box-shadow:
 
 /* tilt */
 
-/* MOBILE OPTIMIZATION */
-@media (max-width: 768px) {
-
-  /* Hero adjustments */
-  .hero-content h1 {
-    font-size: 48px;
-  }
-
-  .hero-content p {
-    font-size: 16px;
-    padding: 0 12px;
-  }
-
-  /* Service cards stack vertically */
-  .service-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-
-  .service {
-    padding: 28px;
-  }
-
-  .glass-panel {
-    padding: 40px;
-  }
-
-  .cta {
-    padding: 14px 26px;
-    font-size: 14px;
-  }
-
-  /* Reduce floating shapes */
-  .cube,
-  .panel {
-    display: none;
-  }
-
-  .orb {
-    width: 80px;
-    height: 80px;
-  }
-
+/* Mobile floating shapes adjustments */
+.cube {
+  display: block;          /* keep it visible */
+  width: 80px;             /* smaller width */
+  height: 80px;            /* smaller height */
+  top: 10%;
+  left: 10%;
+  border-radius: 12px;     /* slightly rounded for mobile */
 }
 
-
-.tilt{
-
-transition:transform .2s;
-
+.panel {
+  display: block;
+  width: 100px;
+  height: 60px;
+  top: 30%;
+  right: 10%;
+  border-radius: 10px;
 }
 
+.orb {
+  width: 60px;
+  height: 60px;            /* smaller orb */
+}
