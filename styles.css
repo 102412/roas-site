@@ -4,16 +4,14 @@ padding:0;
 box-sizing:border-box;
 }
 
+body{
+
 font-family:Inter,sans-serif;
 background:#04060a;
 color:white;
 overflow-x:hidden;
 
   body {
-  font-family:Inter,sans-serif;
-background:#04060a;
-color:white;
-overflow-x:hidden;
   background: 
     repeating-linear-gradient(
       0deg, 
@@ -386,6 +384,4 @@ box-shadow:
   width: 60px;
   height: 60px;            /* smaller orb */
 }
-
-
 
