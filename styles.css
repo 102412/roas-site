@@ -11,6 +11,27 @@ background:#04060a;
 color:white;
 overflow-x:hidden;
 
+  body {
+  background: 
+    repeating-linear-gradient(
+      0deg, 
+      rgba(255,255,255,0.05) 0px, 
+      rgba(255,255,255,0.05) 1px, 
+      transparent 1px, 
+      transparent 20px
+    ),
+    repeating-linear-gradient(
+      90deg, 
+      rgba(255,255,255,0.05) 0px, 
+      rgba(255,255,255,0.05) 1px, 
+      transparent 1px, 
+      transparent 20px
+    ),
+    #000814; /* dark base background */
+  background-size: 20px 20px;
+}
+
+
 }
 
 /* ambient glow */
@@ -363,4 +384,5 @@ box-shadow:
   width: 60px;
   height: 60px;            /* smaller orb */
 }
+
 
