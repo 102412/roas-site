@@ -4,15 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ROAS.RYE</title>
-
-<!-- Favicon -->
 <link rel="icon" type="image/png" href="favicon.png">
 
 <style>
 :root {
-  --accent-color: #00f0ff; /* default blue */
+  --accent-color: #00f0ff; /* default accent */
 }
 
+/* ---------------- BODY & GRID ---------------- */
 body {
   margin: 0;
   padding: 0;
@@ -27,7 +26,7 @@ body {
   position: relative;
 }
 
-/* Color picker slider */
+/* ---------------- COLOR PICKER ---------------- */
 .color-picker {
   position: fixed;
   bottom: 20px;
@@ -48,7 +47,7 @@ body {
   background: none;
 }
 
-/* Hero section */
+/* ---------------- HERO ---------------- */
 .hero {
   height: 100vh;
   display: flex;
@@ -86,7 +85,7 @@ body {
   filter: brightness(1.2);
 }
 
-/* Floating glass orb */
+/* ---------------- FLOATING ORB ---------------- */
 .orb {
   position: absolute;
   width: 100px;
@@ -101,7 +100,7 @@ body {
   opacity: 0.5;
 }
 
-/* Glass panels behind services */
+/* ---------------- GLASS PANELS ---------------- */
 .service-section {
   padding: 80px 20px;
   display: flex;
@@ -121,25 +120,26 @@ body {
 }
 
 .service {
-  background: var(--accent-color);
-  opacity: 0.2;
-  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 24px;
   padding: 40px;
   transition: all 0.3s;
+  color: #fff;
 }
 
 .service:hover {
-  opacity: 0.35;
   transform: translateY(-10px);
+  backdrop-filter: blur(25px);
 }
 
-/* Background blobs */
+/* ---------------- BACKGROUND BLOBS ---------------- */
 .blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(120px);
-  opacity: 0.4;
+  opacity: 0.5;
   mix-blend-mode: screen;
   z-index: 0;
 }
@@ -168,7 +168,7 @@ body {
   left: 40%;
 }
 
-/* Floating squares */
+/* ---------------- FLOATING SQUARES ---------------- */
 .cube {
   position: absolute;
   width: 100px;
@@ -178,8 +178,8 @@ body {
   background: var(--accent-color);
   border-radius: 12px;
   filter: blur(40px);
-  opacity: 0.35;
-  z-index: 0;
+  opacity: 0.45;
+  z-index: 1;
 }
 
 .panel {
@@ -191,17 +191,18 @@ body {
   background: var(--accent-color);
   border-radius: 10px;
   filter: blur(50px);
-  opacity: 0.3;
-  z-index: 0;
+  opacity: 0.4;
+  z-index: 1;
 }
 
-/* Mobile optimizations */
+/* ---------------- MOBILE OPTIMIZATION ---------------- */
 @media (max-width: 768px) {
-
   .hero h1 { font-size: 48px; }
   .hero p { font-size: 16px; padding: 0 12px; }
+
   .service-grid { grid-template-columns: 1fr; gap: 25px; }
   .service { padding: 28px; }
+
   .cta { padding: 14px 26px; font-size: 14px; }
 
   .orb { width: 60px; height: 60px; }
@@ -216,7 +217,7 @@ body {
 </head>
 <body>
 
-<!-- Floating shapes -->
+<!-- FLOATING SHAPES -->
 <div class="orb"></div>
 <div class="blob blob1"></div>
 <div class="blob blob2"></div>
@@ -224,20 +225,20 @@ body {
 <div class="cube"></div>
 <div class="panel"></div>
 
-<!-- Color picker -->
+<!-- COLOR PICKER -->
 <div class="color-picker">
   <label for="accent">Accent Color:</label>
   <input type="color" id="accent" value="#00f0ff">
 </div>
 
-<!-- Hero section -->
+<!-- HERO -->
 <section class="hero">
   <h1>ROAS.RYE</h1>
   <p>High-performance paid ads and conversion systems.</p>
   <a href="https://form.typeform.com/to/v52LyFod" class="cta" target="_blank">Start Project</a>
 </section>
 
-<!-- Services -->
+<!-- SERVICES -->
 <section class="service-section">
   <h2>Our Services</h2>
   <div class="service-grid">
@@ -249,15 +250,21 @@ body {
 </section>
 
 <script>
-/* Scroll orb effect */
+/* ---------------- SCROLL ORB & SHAPES ---------------- */
 const orb = document.querySelector(".orb");
+const cube = document.querySelector(".cube");
+const panel = document.querySelector(".panel");
+
 window.addEventListener("scroll", () => {
   let scroll = window.scrollY;
   let speed = window.innerWidth <= 768 ? 0.3 : 0.6;
+
   orb.style.transform = `translate(-50%, ${scroll * speed}px)`;
+  cube.style.transform = `translate(0, ${scroll * speed * 0.5}px)`;
+  panel.style.transform = `translate(0, ${scroll * speed * 0.7}px)`;
 });
 
-/* Dynamic accent color */
+/* ---------------- ACCENT COLOR SLIDER ---------------- */
 const colorPicker = document.getElementById("accent");
 colorPicker.addEventListener("input", (e) => {
   document.documentElement.style.setProperty('--accent-color', e.target.value);
