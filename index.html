@@ -1,127 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ROAS.RYE</title>
 
-<link rel="stylesheet" href="styles.css">
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="favicon.png">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --accent-color: #00f0ff; /* default blue */
+}
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  background: 
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 20px),
+    #000814;
+  background-size: 20px 20px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Color picker slider */
+.color-picker {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 15px;
+  border-radius: 12px;
+  color: white;
+  font-family: sans-serif;
+  z-index: 999;
+}
+
+.color-picker input[type="color"] {
+  width: 50px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+/* Hero section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 72px;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 20px;
+  margin: 10px 0 30px 0;
+  max-width: 600px;
+}
+
+/* CTA */
+.cta {
+  background: var(--accent-color);
+  color: #fff;
+  padding: 18px 32px;
+  font-size: 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.cta:hover {
+  filter: brightness(1.2);
+}
+
+/* Floating glass orb */
+.orb {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 1;
+  filter: blur(50px);
+  opacity: 0.5;
+}
+
+/* Glass panels behind services */
+.service-section {
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 50px;
+}
+
+.service {
+  background: var(--accent-color);
+  opacity: 0.2;
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 40px;
+  transition: all 0.3s;
+}
+
+.service:hover {
+  opacity: 0.35;
+  transform: translateY(-10px);
+}
+
+/* Background blobs */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+.blob1 {
+  width: 300px;
+  height: 300px;
+  background: var(--accent-color);
+  top: 20%;
+  left: 10%;
+}
+
+.blob2 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent-color);
+  top: 50%;
+  right: 5%;
+}
+
+.blob3 {
+  width: 250px;
+  height: 250px;
+  background: var(--accent-color);
+  bottom: 10%;
+  left: 40%;
+}
+
+/* Floating squares */
+.cube {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 15%;
+  left: 10%;
+  background: var(--accent-color);
+  border-radius: 12px;
+  filter: blur(40px);
+  opacity: 0.35;
+  z-index: 0;
+}
+
+.panel {
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  top: 50%;
+  right: 10%;
+  background: var(--accent-color);
+  border-radius: 10px;
+  filter: blur(50px);
+  opacity: 0.3;
+  z-index: 0;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+
+  .hero h1 { font-size: 48px; }
+  .hero p { font-size: 16px; padding: 0 12px; }
+  .service-grid { grid-template-columns: 1fr; gap: 25px; }
+  .service { padding: 28px; }
+  .cta { padding: 14px 26px; font-size: 14px; }
+
+  .orb { width: 60px; height: 60px; }
+  .blob { filter: blur(80px); opacity: 0.3; }
+  .blob1, .blob2, .blob3 { width: 150px; height: 150px; }
+  .cube { width: 80px; height: 80px; top: 10%; left: 10%; }
+  .panel { width: 100px; height: 60px; top: 30%; right: 10%; }
+
+  .color-picker { width: auto; bottom: 15px; right: 15px; font-size: 12px; padding: 8px 10px; }
+}
+</style>
 </head>
-
 <body>
 
-<!-- frosted scroll orb -->
-<div class="scroll-orb"></div>
-
-<!-- ambient blue glow -->
-<div class="bg-glow"></div>
-
-
-<section class="hero">
-
-<!-- floating shapes layer -->
-<div class="floating-layer">
-
-<div class="glass-shape cube"></div>
-<div class="glass-shape panel"></div>
-<div class="glass-shape orb"></div>
-
-</div>
-
-
-<!-- text layer -->
-<div class="hero-content">
-
-<h1>
-<!-- EDIT TEXT -->
-ROAS.RYE
-</h1>
-
-<p>
-<!-- EDIT TEXT -->
-High Level Performance Web Suites & Paid Ad Solutions
-</p>
-
-<a href="https://form.typeform.com/to/v52LyFod" target="_blank" class="cta">
-Start Project
-</a>
-
-</div>
-
-</section>
-
-
-
-<section class="services">
-
-<h2>Services</h2>
-
-<div class="service-grid">
-
-<div class="service tilt">
-<h3>[Web-Design Suites]</h3>
-<p>text</p>
-</div>
-
-<div class="service tilt">
-<h3>[Paid Ad-Solutions]</h3>
-<p>text</p>
-</div>
-
-<div class="service tilt">
-<h3>[Learn What I Do]</h3>
-<p>text</p>
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="results">
-
-<h2>[Past Work]</h2>
-
-<div class="glass-panel tilt">
-
-<p>
-...
-</p>
-
-</div>
-
-</section>
-
-
-
-<section class="cta-section">
-
-<div class="glass-panel tilt">
-
-<h2>Work With Me!</h2>
-
-<p>Let's scale your Brand!</p>
-
-<a href="https://form.typeform.com/to/v52LyFod" target="_blank" class="cta">
-[APPLY NOW]
-</a>
-
-</div>
-
-</section>
-
-
-<script src="script.js"></scri
-
-<!-- Background blobs -->
+<!-- Floating shapes -->
+<div class="orb"></div>
 <div class="blob blob1"></div>
 <div class="blob blob2"></div>
 <div class="blob blob3"></div>
+<div class="cube"></div>
+<div class="panel"></div>
 
+<!-- Color picker -->
+<div class="color-picker">
+  <label for="accent">Accent Color:</label>
+  <input type="color" id="accent" value="#00f0ff">
+</div>
+
+<!-- Hero section -->
+<section class="hero">
+  <h1>ROAS.RYE</h1>
+  <p>High-performance paid ads and conversion systems.</p>
+  <a href="https://form.typeform.com/to/v52LyFod" class="cta" target="_blank">Start Project</a>
+</section>
+
+<!-- Services -->
+<section class="service-section">
+  <h2>Our Services</h2>
+  <div class="service-grid">
+    <div class="service">Paid Media</div>
+    <div class="service">Landing Page Design</div>
+    <div class="service">Conversion Optimization</div>
+    <div class="service">Analytics & Reporting</div>
+  </div>
+</section>
+
+<script>
+/* Scroll orb effect */
+const orb = document.querySelector(".orb");
+window.addEventListener("scroll", () => {
+  let scroll = window.scrollY;
+  let speed = window.innerWidth <= 768 ? 0.3 : 0.6;
+  orb.style.transform = `translate(-50%, ${scroll * speed}px)`;
+});
+
+/* Dynamic accent color */
+const colorPicker = document.getElementById("accent");
+colorPicker.addEventListener("input", (e) => {
+  document.documentElement.style.setProperty('--accent-color', e.target.value);
+});
+</script>
+
+</body>
+</html>
