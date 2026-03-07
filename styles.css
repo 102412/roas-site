@@ -385,3 +385,37 @@ box-shadow:
   height: 60px;            /* smaller orb */
 }
 
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  mix-blend-mode: screen; /* makes it glow nicely over dark background */
+  z-index: 0; /* behind content */
+}
+
+/* Individual blob colors & positions */
+.blob1 {
+  width: 300px;
+  height: 300px;
+  background: #00f0ff;
+  top: 20%;
+  left: 10%;
+}
+
+.blob2 {
+  width: 400px;
+  height: 400px;
+  background: #0040ff;
+  top: 50%;
+  right: 5%;
+}
+
+.blob3 {
+  width: 250px;
+  height: 250px;
+  background: #0080ff;
+  bottom: 10%;
+  left: 40%;
+}
+
