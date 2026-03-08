@@ -39,10 +39,11 @@ let scroll=window.scrollY
 
 shapes.forEach((shape,i)=>{
 
-let speed=(i+1)*0.25
+const speed=0.1+(i*0.05)
+const direction=i%2===0?1:-1
 
 shape.style.transform=
-`translateY(${scroll*speed}px) rotate(${scroll*0.06}deg)`
+`translateY(${scroll*speed*direction}px) rotate(${scroll*0.04*direction}deg)`
 
 })
 
