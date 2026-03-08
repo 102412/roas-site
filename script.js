@@ -60,6 +60,25 @@ card.addEventListener("mouseleave",()=>{
 
 card.style.transform="rotateX(0) rotateY(0)"
 
-})
 
 })
+let popupTriggered = false;
+
+function showAccentPopup(){
+
+if(popupTriggered) return;
+
+popupTriggered = true;
+
+document.getElementById("accentPopup").classList.add("show");
+
+}
+
+function closeAccentPopup(){
+
+document.getElementById("accentPopup").classList.remove("show");
+
+}
+
+})
+
