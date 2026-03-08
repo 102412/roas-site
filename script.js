@@ -1,4 +1,4 @@
-const picker=document.getElementById("accentPicker")
+const picker=document.getElementById("accentPopup")
 const popup=document.getElementById("accentPopup")
 const closeBtn=document.getElementById("closePopup")
 
@@ -77,3 +77,4 @@ shape.style.transform=
 })
 
 })
+
