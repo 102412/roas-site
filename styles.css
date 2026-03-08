@@ -32,25 +32,25 @@ z-index:0;
 
 .blob{
 position:fixed;
-filter:blur(140px);
+filter:blur(120px);
 opacity:.45;
 z-index:0;
 }
 
 .blob1{
-width:420px;
-height:420px;
+width:35vw;
+height:35vw;
 background:var(--accent-color);
 top:10%;
-left:10%;
+left:5%;
 }
 
 .blob2{
-width:380px;
-height:380px;
+width:30vw;
+height:30vw;
 background:#ff2d95;
 bottom:5%;
-right:10%;
+right:5%;
 }
 
 /* GLASS SHAPES */
@@ -60,29 +60,29 @@ position:fixed;
 background:rgba(255,255,255,.06);
 backdrop-filter:blur(30px);
 border:1px solid rgba(255,255,255,.08);
-border-radius:32%;
+border-radius:30%;
 z-index:1;
 }
 
 .shape1{
-width:260px;
-height:260px;
-top:20%;
-left:8%;
+width:18vw;
+height:18vw;
+top:25%;
+left:5%;
 }
 
 .shape2{
-width:220px;
-height:220px;
+width:16vw;
+height:16vw;
 top:60%;
-right:10%;
+right:8%;
 }
 
 .shape3{
-width:200px;
-height:200px;
-bottom:15%;
-left:45%;
+width:14vw;
+height:14vw;
+bottom:10%;
+left:40%;
 }
 
 /* PAGE */
@@ -90,31 +90,33 @@ left:45%;
 .page{
 position:relative;
 z-index:2;
-padding:140px 20px;
-max-width:1200px;
+padding:120px 20px;
+max-width:1100px;
 margin:auto;
 }
 
 /* HERO */
 
 .hero{
-margin-bottom:200px;
+margin-bottom:160px;
+text-align:center;
 }
 
 .hero h1{
-font-size:80px;
+font-size:clamp(42px,8vw,80px);
 color:var(--accent-color);
 }
 
 .hero p{
-margin-top:15px;
+margin-top:12px;
 opacity:.8;
+font-size:clamp(14px,2.5vw,20px);
 }
 
-/* INSTAGRAM ICON */
+/* IG */
 
 .ig-icon{
-width:36px;
+width:32px;
 margin-top:20px;
 fill:var(--accent-color);
 }
@@ -122,23 +124,22 @@ fill:var(--accent-color);
 /* SERVICES */
 
 .services{
-margin-bottom:220px;
+margin-bottom:180px;
 }
 
 .services h2{
 margin-bottom:40px;
+text-align:center;
 }
 
 .cards{
-display:flex;
-gap:30px;
-flex-wrap:wrap;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
 }
 
 .card{
-flex:1;
-min-width:260px;
-padding:40px;
+padding:35px;
 background:rgba(255,255,255,.06);
 backdrop-filter:blur(20px);
 border-radius:16px;
@@ -148,47 +149,28 @@ transition:.3s;
 
 .card:hover{
 border-color:var(--accent-color);
-transform:translateY(-8px);
-}
-
-/* PROCESS */
-
-.process{
-margin-bottom:220px;
-}
-
-.steps{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-margin-top:30px;
-}
-
-.step{
-padding:25px 40px;
-background:rgba(255,255,255,.05);
-border-radius:12px;
-border:1px solid rgba(255,255,255,.08);
+transform:translateY(-6px);
 }
 
 /* INSTAGRAM */
 
 .instagram{
-margin-bottom:220px;
+margin-bottom:180px;
+text-align:center;
 }
 
 /* CONTACT */
 
 .contact{
 text-align:center;
-margin-bottom:200px;
+margin-bottom:150px;
 }
 
 .cta{
-padding:14px 30px;
+padding:14px 28px;
 background:var(--accent-color);
 border:none;
-border-radius:10px;
+border-radius:8px;
 cursor:pointer;
 }
 
@@ -196,8 +178,8 @@ cursor:pointer;
 
 #accentPicker{
 position:fixed;
-top:20px;
-right:20px;
+top:18px;
+right:18px;
 z-index:1000;
 }
 
@@ -212,7 +194,7 @@ height:100%;
 display:none;
 align-items:center;
 justify-content:center;
-background:rgba(0,0,0,.55);
+background:rgba(0,0,0,.6);
 backdrop-filter:blur(8px);
 z-index:999;
 }
@@ -223,29 +205,51 @@ display:flex;
 
 .accent-popup-box{
 background:rgba(255,255,255,.08);
-padding:40px;
+padding:35px;
 border-radius:18px;
 border:1px solid var(--accent-color);
-backdrop-filter:blur(25px);
-max-width:420px;
+max-width:380px;
+width:90%;
 text-align:center;
 }
 
 .popup-btn{
-margin-top:20px;
+margin-top:18px;
 background:var(--accent-color);
-padding:10px 22px;
 border:none;
+padding:10px 22px;
 border-radius:8px;
 }
 
 .popup-close{
 position:absolute;
-top:20px;
-right:30px;
+top:18px;
+right:25px;
 background:none;
 border:none;
 color:white;
 font-size:18px;
 cursor:pointer;
+}
+
+/* MOBILE ADJUSTMENTS */
+
+@media (max-width:768px){
+
+.page{
+padding:100px 18px;
+}
+
+.hero{
+margin-bottom:120px;
+}
+
+.services{
+margin-bottom:140px;
+}
+
+.shape{
+opacity:.6;
+}
+
 }
