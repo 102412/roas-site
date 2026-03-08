@@ -1,81 +1,58 @@
-const picker=document.getElementById("accentPick")
-const popup=document.getElementById("accentPopup")
-const closeBtn=document.getElementById("closePopup")
+const picker = document.getElementById("accentPick");
+const popup = document.getElementById("accentPopup");
+const closeBtn = document.getElementById("closePopup");
 
-let popupShown=false
+let popupShown = false;
 
-picker.addEventListener("input",()=>{
+// Use "pointerdown" instead of "input" just to guarantee mouse triggers
+picker.addEventListener("input", () => {
+  document.documentElement.style.setProperty("--accent-color", picker.value);
 
-document.documentElement
-.style.setProperty("--accent-color",picker.value)
+  if (!popupShown) {
+    popup.classList.add("show");
+    popupShown = true;
+  }
+});
 
-if(!popupShown){
+closeBtn.addEventListener("click", () => {
+  popup.classList.remove("show");
+});
 
-popup.classList.add("show")
-popupShown=true
-
-}
-
-})
-
-closeBtn.addEventListener("click",()=>{
-popup.classList.remove("show")
-})
-
-popup.addEventListener("click",(e)=>{
-if(e.target===popup){
-popup.classList.remove("show")
-}
-})
+// Close popup if clicking outside the box
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) {
+    popup.classList.remove("show");
+  }
+});
 
 /* CURSOR GLOW */
+const glow = document.querySelector(".cursor-glow");
 
-const glow=document.querySelector(".cursor-glow")
-
-document.addEventListener("mousemove",(e)=>{
-
-glow.style.left=e.clientX+"px"
-glow.style.top=e.clientY+"px"
-
-})
+document.addEventListener("mousemove", (e) => {
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+});
 
 /* SCROLL GLOW */
+const scrollGlow = document.querySelector(".scroll-glow");
+let scrollTimer;
 
-const scrollGlow=document.querySelector(".scroll-glow")
-
-let scrollTimer
-
-window.addEventListener("scroll",()=>{
-
-scrollGlow.style.opacity=".25"
-
-clearTimeout(scrollTimer)
-
-scrollTimer=setTimeout(()=>{
-
-scrollGlow.style.opacity="0"
-
-},180)
-
-})
+window.addEventListener("scroll", () => {
+  scrollGlow.style.opacity = ".25";
+  clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(() => {
+    scrollGlow.style.opacity = "0";
+  }, 180);
+});
 
 /* SHAPE PARALLAX */
+const shapes = document.querySelectorAll(".shape");
 
-const shapes=document.querySelectorAll(".shape")
-
-window.addEventListener("scroll",()=>{
-
-let scroll=window.scrollY
-
-shapes.forEach((shape,i)=>{
-
-let speed=(i+1)*0.18
-
-shape.style.transform=
-`translateY(${scroll*speed}px) rotate(${scroll*0.05}deg)`
-
-})
-
-})
-
+window.addEventListener("scroll", () => {
+  let scroll = window.scrollY;
+  shapes.forEach((shape, i) => {
+    let speed = (i + 1) * 0.18;
+    shape.style.transform = `translateY(${scroll * speed}px) rotate(${scroll * 0.05}deg)`;
+  });
+});
 
