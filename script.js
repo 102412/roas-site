@@ -4,12 +4,10 @@ const closeBtn=document.getElementById("closePopup")
 
 let popupShown=false
 
-/* accent color */
-
 picker.addEventListener("input",()=>{
 
-document.documentElement.style
-.setProperty("--accent-color",picker.value)
+document.documentElement
+.style.setProperty("--accent-color",picker.value)
 
 if(!popupShown){
 
@@ -30,7 +28,7 @@ popup.classList.remove("show")
 }
 })
 
-/* cursor glow */
+/* CURSOR GLOW */
 
 const glow=document.querySelector(".cursor-glow")
 
@@ -41,9 +39,10 @@ glow.style.top=e.clientY+"px"
 
 })
 
-/* scroll glow */
+/* SCROLL GLOW */
 
 const scrollGlow=document.querySelector(".scroll-glow")
+
 let scrollTimer
 
 window.addEventListener("scroll",()=>{
@@ -56,11 +55,11 @@ scrollTimer=setTimeout(()=>{
 
 scrollGlow.style.opacity="0"
 
-},200)
+},180)
 
 })
 
-/* shape scroll motion */
+/* SHAPE PARALLAX */
 
 const shapes=document.querySelectorAll(".shape")
 
