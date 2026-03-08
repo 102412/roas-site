@@ -1,84 +1,47 @@
+const picker = document.getElementById("accentPicker");
+const popup = document.getElementById("accentPopup");
 
+let popupShown = false;
 
-/* scroll orb */
+/* Accent color system */
 
-const orb = document.querySelector(".scroll-orb")
+picker.addEventListener("input", () => {
 
-window.addEventListener("scroll",()=>{
+document.documentElement.style
+.setProperty("--accent-color", picker.value);
 
-let scroll = window.scrollY
+if(!popupShown){
 
-orb.style.transform =
-`translate(-50%, ${scroll * 0.6}px)`
-
-})
-
-
-
-/* floating shapes */
-
-document.querySelectorAll(".glass-shape").forEach((shape,i)=>{
-
-let speed = 0.2 + (i*0.1)
-
-window.addEventListener("scroll",()=>{
-
-let y = window.scrollY
-
-shape.style.transform =
-`translateY(${y*speed}px) rotate(${y*0.03}deg)`
-
-})
-
-})
-
-
-
-/* tilt */
-
-document.querySelectorAll(".tilt").forEach(card=>{
-
-card.addEventListener("mousemove",(e)=>{
-
-let rect = card.getBoundingClientRect()
-
-let x = e.clientX - rect.left
-let y = e.clientY - rect.top
-
-let centerX = rect.width/2
-let centerY = rect.height/2
-
-let rotateX = -(y-centerY)/15
-let rotateY = (x-centerX)/15
-
-card.style.transform =
-`rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`
-
-})
-
-card.addEventListener("mouseleave",()=>{
-
-card.style.transform="rotateX(0) rotateY(0)"
-
-
-})
-let popupTriggered = false;
-
-function showAccentPopup(){
-
-if(popupTriggered) return;
-
-popupTriggered = true;
-
-document.getElementById("accentPopup").classList.add("show");
+popup.classList.add("show");
+popupShown = true;
 
 }
+
+});
+
+/* Close popup */
 
 function closeAccentPopup(){
 
-document.getElementById("accentPopup").classList.remove("show");
+popup.classList.remove("show");
 
 }
 
-})
+/* Glass shapes scroll animation */
 
+const shapes = document.querySelectorAll(".shape");
+
+window.addEventListener("scroll", () => {
+
+let scroll = window.scrollY;
+
+shapes.forEach((shape, i)=>{
+
+let speed = (i+1)*0.15;
+
+shape.style.transform =
+`translateY(${scroll * speed}px) rotate(${scroll * 0.05}deg)`;
+
+});
+
+});
