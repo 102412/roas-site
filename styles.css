@@ -224,7 +224,7 @@ align-items:center;
 justify-content:center;
 background:rgba(0,0,0,.6);
 backdrop-filter:blur(8px);
-z-index:999;
+z-index:9999;
 }
 
 .accent-popup.show{
@@ -240,4 +240,5 @@ max-width:380px;
 width:90%;
 text-align:center;
 }
+
 
