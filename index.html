@@ -4,6 +4,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ROAS.RYE</title>
 
 <link rel="icon" href="favicon.png">
@@ -18,10 +19,12 @@ body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
 color:white;
+
 background:
 repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0px, rgba(255,255,255,.05) 1px, transparent 1px, transparent 24px),
 repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0px, rgba(255,255,255,.05) 1px, transparent 1px, transparent 24px),
 #05070c;
+
 overflow-x:hidden;
 }
 
@@ -54,6 +57,7 @@ background:var(--accent);
 border-radius:10px;
 text-decoration:none;
 color:white;
+font-weight:bold;
 }
 
 /* INSTAGRAM ICON */
@@ -65,7 +69,7 @@ margin-top:20px;
 .ig img{
 width:28px;
 filter:invert(1);
-opacity:.85;
+opacity:.9;
 }
 
 /* INSTAGRAM FEED */
@@ -75,12 +79,24 @@ padding:80px 20px;
 text-align:center;
 }
 
-.feed iframe{
-width:100%;
+.ig-container{
+
 max-width:900px;
-height:600px;
-border:none;
+margin:auto;
+
+padding:25px;
+
 border-radius:20px;
+
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+
+border:2px solid var(--accent);
+
+box-shadow:0 0 40px var(--accent);
+
+transition:.4s;
+
 }
 
 /* SERVICES */
@@ -91,22 +107,33 @@ text-align:center;
 }
 
 .service-grid{
+
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:40px;
+
 max-width:900px;
 margin:auto;
+
 }
 
 .service{
+
 padding:40px;
+
 border-radius:20px;
+
 background:rgba(255,255,255,.08);
+
 backdrop-filter:blur(18px);
+
 border:1px solid rgba(255,255,255,.15);
+
 text-decoration:none;
 color:white;
+
 transition:.3s;
+
 }
 
 .service:hover{
@@ -117,54 +144,83 @@ border-color:var(--accent);
 /* FOOTER */
 
 footer{
+
 margin-top:120px;
+
 padding:40px 20px;
+
 text-align:center;
+
 opacity:.7;
+
 font-size:14px;
+
 border-top:1px solid rgba(255,255,255,.1);
+
 }
 
 /* COLOR PICKER */
 
 .color-picker{
+
 position:fixed;
 bottom:20px;
 right:20px;
+
 z-index:999;
+
 }
 
-/* SCROLL SHAPES */
+/* FLOATING SHAPES */
 
 .shape{
+
 position:absolute;
+
 background:var(--accent);
+
 opacity:.35;
+
 filter:blur(50px);
+
+transition:.3s;
+
 }
 
 .circle{
+
 width:120px;
 height:120px;
+
 border-radius:50%;
+
 top:15%;
 left:50%;
+
 }
 
 .square{
+
 width:120px;
 height:120px;
+
 top:40%;
 left:10%;
+
 border-radius:14px;
+
 }
 
 .panel{
+
 width:200px;
 height:80px;
+
 top:65%;
 right:10%;
+
 border-radius:10px;
+
 }
 
 /* MOBILE */
@@ -175,10 +231,6 @@ border-radius:10px;
 font-size:44px;
 }
 
-.feed iframe{
-height:450px;
-}
-
 .service{
 padding:25px;
 }
@@ -186,17 +238,18 @@ padding:25px;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- GLASS SHAPES -->
+<!-- FLOATING GLASS SHAPES -->
 
 <div class="shape circle" id="shape1"></div>
 <div class="shape square" id="shape2"></div>
 <div class="shape panel" id="shape3"></div>
 
-<!-- COLOR PICKER -->
+<!-- ACCENT COLOR PICKER -->
 
 <div class="color-picker">
 <input type="color" id="accent" value="#00f0ff">
@@ -230,7 +283,15 @@ Apply Now
 
 <h2>Latest From Instagram</h2>
 
-<iframe src="https://snapwidget.com/embed/1038097"></iframe>
+<div class="ig-container">
+
+<!-- Elfsight Instagram Feed -->
+
+<script src="https://elfsightcdn.com/platform.js" async></script>
+
+<div class="elfsight-app-fb80108b-b187-4241-b172-66663fc9bd82" data-elfsight-app-lazy></div>
+
+</div>
 
 </section>
 
@@ -295,4 +356,5 @@ s3.style.transform=`translate(0,${y*.7}px)`
 
 </body>
 </html>
+
 
