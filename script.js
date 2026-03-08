@@ -1,48 +1,56 @@
-const picker = document.getElementById("accentPicker");
-const popup = document.getElementById("accentPopup");
+const picker = document.getElementById("accentPicker")
+const popup = document.getElementById("accentPopup")
+const closeBtn = document.getElementById("closePopup")
 
-let popupShown = false;
+let popupShown = false
 
 /* Accent color */
 
 picker.addEventListener("input", () => {
 
-document.documentElement
-.style
-.setProperty("--accent-color", picker.value);
+document.documentElement.style
+.setProperty("--accent-color", picker.value)
 
 if(!popupShown){
 
-popup.classList.add("show");
-popupShown = true;
+popup.classList.add("show")
+popupShown = true
 
 }
 
-});
+})
 
 /* Close popup */
 
-function closeAccentPopup(){
+closeBtn.addEventListener("click", ()=>{
+popup.classList.remove("show")
+})
 
-popup.classList.remove("show");
+popup.addEventListener("click",(e)=>{
+
+if(e.target === popup){
+
+popup.classList.remove("show")
 
 }
 
-/* Scroll animation for shapes */
+})
 
-const shapes = document.querySelectorAll(".shape");
+/* GLASS SHAPE SCROLL MOVEMENT */
 
-window.addEventListener("scroll", () => {
+const shapes = document.querySelectorAll(".shape")
 
-let scroll = window.scrollY;
+window.addEventListener("scroll", ()=>{
+
+let scroll = window.scrollY
 
 shapes.forEach((shape,i)=>{
 
-let speed = (i+1)*0.15;
+let speed = (i+1)*0.25
 
 shape.style.transform =
-`translateY(${scroll * speed}px) rotate(${scroll * 0.05}deg)`;
+`translateY(${scroll*speed}px) rotate(${scroll*0.07}deg)`
 
-});
+})
 
-});
+})
