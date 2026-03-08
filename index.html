@@ -63,13 +63,14 @@ font-weight:bold;
 /* INSTAGRAM ICON */
 
 .ig{
-margin-top:20px;
+margin-top:25px;
 }
 
-.ig img{
-width:28px;
-filter:invert(1);
-opacity:.9;
+.ig svg{
+width:30px;
+height:30px;
+fill:var(--accent);
+transition:.3s;
 }
 
 /* INSTAGRAM FEED */
@@ -243,13 +244,13 @@ padding:25px;
 
 <body>
 
-<!-- FLOATING GLASS SHAPES -->
+<!-- FLOATING SHAPES -->
 
 <div class="shape circle" id="shape1"></div>
 <div class="shape square" id="shape2"></div>
 <div class="shape panel" id="shape3"></div>
 
-<!-- ACCENT COLOR PICKER -->
+<!-- COLOR PICKER -->
 
 <div class="color-picker">
 <input type="color" id="accent" value="#00f0ff">
@@ -270,91 +271,8 @@ Apply Now
 </a>
 
 <div class="ig">
+
 <a href="https://instagram.com/roas.rye" target="_blank">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-</a>
-</div>
 
-</section>
-
-<!-- INSTAGRAM FEED -->
-
-<section class="feed">
-
-<h2>Latest From Instagram</h2>
-
-<div class="ig-container">
-
-<!-- Elfsight Instagram Feed -->
-
-<script src="https://elfsightcdn.com/platform.js" async></script>
-
-<div class="elfsight-app-fb80108b-b187-4241-b172-66663fc9bd82" data-elfsight-app-lazy></div>
-
-</div>
-
-</section>
-
-<!-- SERVICES -->
-
-<section class="services">
-
-<h2>What We Do</h2>
-
-<div class="service-grid">
-
-<a class="service" href="https://form.typeform.com/to/v52LyFod" target="_blank">
-Paid Advertising
-</a>
-
-<a class="service" href="https://form.typeform.com/to/v52LyFod" target="_blank">
-Landing Page Optimization
-</a>
-
-<a class="service" href="https://form.typeform.com/to/v52LyFod" target="_blank">
-Conversion Systems
-</a>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-© 2026 ROAS.RYE — All Rights Reserved.  
-Unauthorized reproduction, distribution, or modification of this website and its content is prohibited.
-
-</footer>
-
-<script>
-
-/* ACCENT COLOR */
-
-document.getElementById("accent").addEventListener("input",e=>{
-document.documentElement.style.setProperty("--accent",e.target.value)
-})
-
-/* SCROLL SHAPES */
-
-let s1=document.getElementById("shape1")
-let s2=document.getElementById("shape2")
-let s3=document.getElementById("shape3")
-
-window.addEventListener("scroll",()=>{
-
-let y=window.scrollY
-
-s1.style.transform=`translate(-50%,${y*.5}px)`
-s2.style.transform=`translate(0,${y*.3}px)`
-s3.style.transform=`translate(0,${y*.7}px)`
-
-})
-
-</script>
-
-</body>
-</html>
-
-
+<svg viewBox="0 0 24 24">
+<path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zm0 2h8.5C18.54 4 20 5.46 20 7.75v8.5C20 18.54 18.54 20 16.25 20h-8.5C5.46 20 4 18.54 4 16.25v-8.5C4 5.46 5.46 4 7.75 4zm9.25 1.5a1 1 0 100 2 1 1 0 000-2zM
