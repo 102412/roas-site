@@ -3,11 +3,12 @@ const popup = document.getElementById("accentPopup");
 
 let popupShown = false;
 
-/* Accent color system */
+/* Accent color */
 
 picker.addEventListener("input", () => {
 
-document.documentElement.style
+document.documentElement
+.style
 .setProperty("--accent-color", picker.value);
 
 if(!popupShown){
@@ -27,7 +28,7 @@ popup.classList.remove("show");
 
 }
 
-/* Glass shapes scroll animation */
+/* Scroll animation for shapes */
 
 const shapes = document.querySelectorAll(".shape");
 
@@ -35,7 +36,7 @@ window.addEventListener("scroll", () => {
 
 let scroll = window.scrollY;
 
-shapes.forEach((shape, i)=>{
+shapes.forEach((shape,i)=>{
 
 let speed = (i+1)*0.15;
 
