@@ -28,13 +28,12 @@ overflow-x:hidden;
 /* HERO */
 
 .hero{
-height:90vh;
+height:80vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-z-index:2;
 position:relative;
 }
 
@@ -57,7 +56,7 @@ text-decoration:none;
 color:white;
 }
 
-/* INSTAGRAM */
+/* INSTAGRAM ICON */
 
 .ig{
 margin-top:20px;
@@ -66,28 +65,22 @@ margin-top:20px;
 .ig img{
 width:28px;
 filter:invert(1);
-opacity:.8;
+opacity:.85;
 }
 
-/* CAROUSEL */
+/* INSTAGRAM FEED */
 
-.carousel{
+.feed{
+padding:80px 20px;
+text-align:center;
+}
+
+.feed iframe{
 width:100%;
 max-width:900px;
-margin:auto;
-overflow:hidden;
-border-radius:18px;
-margin-top:40px;
-}
-
-.slides{
-display:flex;
-transition:transform .6s;
-}
-
-.slides img{
-width:100%;
-flex-shrink:0;
+height:600px;
+border:none;
+border-radius:20px;
 }
 
 /* SERVICES */
@@ -101,18 +94,24 @@ text-align:center;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:40px;
-max-width:1100px;
+max-width:900px;
 margin:auto;
 }
 
 .service{
 padding:40px;
 border-radius:20px;
-
 background:rgba(255,255,255,.08);
 backdrop-filter:blur(18px);
-
 border:1px solid rgba(255,255,255,.15);
+text-decoration:none;
+color:white;
+transition:.3s;
+}
+
+.service:hover{
+transform:translateY(-6px);
+border-color:var(--accent);
 }
 
 /* FOOTER */
@@ -135,7 +134,7 @@ right:20px;
 z-index:999;
 }
 
-/* SHAPES */
+/* SCROLL SHAPES */
 
 .shape{
 position:absolute;
@@ -176,8 +175,8 @@ border-radius:10px;
 font-size:44px;
 }
 
-.carousel{
-width:92%;
+.feed iframe{
+height:450px;
 }
 
 .service{
@@ -214,7 +213,7 @@ High performance paid ads and conversion systems
 </p>
 
 <a class="cta" href="https://form.typeform.com/to/v52LyFod" target="_blank">
-Start Project
+Apply Now
 </a>
 
 <div class="ig">
@@ -223,19 +222,15 @@ Start Project
 </a>
 </div>
 
-<!-- CAROUSEL -->
+</section>
 
-<div class="carousel">
+<!-- INSTAGRAM FEED -->
 
-<div class="slides" id="slides">
+<section class="feed">
 
-<img src="image1.jpg">
-<img src="image2.jpg">
-<img src="image3.jpg">
+<h2>Latest From Instagram</h2>
 
-</div>
-
-</div>
+<iframe src="https://snapwidget.com/embed/1038097"></iframe>
 
 </section>
 
@@ -243,25 +238,21 @@ Start Project
 
 <section class="services">
 
-<h2>Services</h2>
+<h2>What We Do</h2>
 
 <div class="service-grid">
 
-<div class="service">
+<a class="service" href="https://form.typeform.com/to/v52LyFod" target="_blank">
 Paid Advertising
-</div>
+</a>
 
-<div class="service">
+<a class="service" href="https://form.typeform.com/to/v52LyFod" target="_blank">
 Landing Page Optimization
-</div>
+</a>
 
-<div class="service">
+<a class="service" href="https://form.typeform.com/to/v52LyFod" target="_blank">
 Conversion Systems
-</div>
-
-<div class="service">
-Analytics & Reporting
-</div>
+</a>
 
 </div>
 
@@ -299,21 +290,6 @@ s2.style.transform=`translate(0,${y*.3}px)`
 s3.style.transform=`translate(0,${y*.7}px)`
 
 })
-
-/* CAROUSEL */
-
-let slides=document.getElementById("slides")
-let index=0
-
-setInterval(()=>{
-
-index++
-
-if(index>2){index=0}
-
-slides.style.transform=`translateX(-${index*100}%)`
-
-},3500)
 
 </script>
 
