@@ -4,12 +4,11 @@ const closeBtn = document.getElementById("closePopup")
 
 let popupShown = false
 
-/* Accent color */
+picker.addEventListener("input",()=>{
 
-picker.addEventListener("input", () => {
-
-document.documentElement.style
-.setProperty("--accent-color", picker.value)
+document.documentElement
+.style
+.setProperty("--accent-color",picker.value)
 
 if(!popupShown){
 
@@ -20,36 +19,30 @@ popupShown = true
 
 })
 
-/* Close popup */
-
-closeBtn.addEventListener("click", ()=>{
+closeBtn.addEventListener("click",()=>{
 popup.classList.remove("show")
 })
 
 popup.addEventListener("click",(e)=>{
-
 if(e.target === popup){
-
 popup.classList.remove("show")
-
 }
-
 })
 
-/* GLASS SHAPE SCROLL MOVEMENT */
+/* SHAPE SCROLL */
 
-const shapes = document.querySelectorAll(".shape")
+const shapes=document.querySelectorAll(".shape")
 
-window.addEventListener("scroll", ()=>{
+window.addEventListener("scroll",()=>{
 
-let scroll = window.scrollY
+let scroll=window.scrollY
 
 shapes.forEach((shape,i)=>{
 
-let speed = (i+1)*0.25
+let speed=(i+1)*0.25
 
-shape.style.transform =
-`translateY(${scroll*speed}px) rotate(${scroll*0.07}deg)`
+shape.style.transform=
+`translateY(${scroll*speed}px) rotate(${scroll*0.06}deg)`
 
 })
 
