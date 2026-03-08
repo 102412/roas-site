@@ -31,13 +31,14 @@ overflow-x:hidden;
 /* HERO */
 
 .hero{
-height:80vh;
+height:90vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
 position:relative;
+gap:20px;
 }
 
 .hero h1{
@@ -48,8 +49,10 @@ margin:0;
 .hero p{
 max-width:600px;
 opacity:.8;
-margin:20px 0;
+margin:10px 0;
 }
+
+/* CTA */
 
 .cta{
 padding:16px 28px;
@@ -71,6 +74,12 @@ width:30px;
 height:30px;
 fill:var(--accent);
 transition:.3s;
+}
+
+/* COUNTDOWN */
+
+.timer{
+margin-bottom:10px;
 }
 
 /* INSTAGRAM FEED */
@@ -244,13 +253,17 @@ padding:25px;
 
 <body>
 
+<!-- ELFSIGHT PLATFORM (used by both widgets) -->
+
+<script src="https://elfsightcdn.com/platform.js" async></script>
+
 <!-- FLOATING SHAPES -->
 
 <div class="shape circle" id="shape1"></div>
 <div class="shape square" id="shape2"></div>
 <div class="shape panel" id="shape3"></div>
 
-<!-- COLOR PICKER -->
+<!-- ACCENT PICKER -->
 
 <div class="color-picker">
 <input type="color" id="accent" value="#00f0ff">
@@ -260,10 +273,18 @@ padding:25px;
 
 <section class="hero">
 
+<!-- COUNTDOWN TIMER -->
+
+<div class="timer">
+
+<div class="elfsight-app-758b0964-9923-4f06-a0e7-af3bd7a0fcdb" data-elfsight-app-lazy></div>
+
+</div>
+
 <h1>ROAS.RYE</h1>
 
 <p>
-High Level Web-Design Solutions & Paid Ad Systems
+High performance paid ads and conversion systems
 </p>
 
 <a class="cta" href="https://form.typeform.com/to/v52LyFod" target="_blank">
@@ -288,11 +309,9 @@ Apply Now
 
 <section class="feed">
 
-<h2>Check Out Our Instagram Page</h2>
+<h2>Latest From Instagram</h2>
 
 <div class="ig-container">
-
-<script src="https://elfsightcdn.com/platform.js" async></script>
 
 <div class="elfsight-app-fb80108b-b187-4241-b172-66663fc9bd82" data-elfsight-app-lazy></div>
 
@@ -309,15 +328,15 @@ Apply Now
 <div class="service-grid">
 
 <a class="service" href="https://form.typeform.com/to/v52LyFod" target="_blank">
-[Web Design Suites]
+Paid Advertising
 </a>
 
 <a class="service" href="https://form.typeform.com/to/v52LyFod" target="_blank">
-[Paid Ad Systems]
+Landing Page Optimization
 </a>
 
 <a class="service" href="https://form.typeform.com/to/v52LyFod" target="_blank">
-[Learn What I do]
+Conversion Systems
 </a>
 
 </div>
@@ -361,4 +380,3 @@ s3.style.transform=`translate(0,${y*.7}px)`
 
 </body>
 </html>
-
