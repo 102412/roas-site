@@ -4,7 +4,6 @@ const closeBtn = document.getElementById("closePopup");
 
 let popupShown = false;
 
-// Use "pointerdown" instead of "input" just to guarantee mouse triggers
 picker.addEventListener("input", () => {
   document.documentElement.style.setProperty("--accent-color", picker.value);
 
@@ -18,7 +17,6 @@ closeBtn.addEventListener("click", () => {
   popup.classList.remove("show");
 });
 
-// Close popup if clicking outside the box
 popup.addEventListener("click", (e) => {
   if (e.target === popup) {
     popup.classList.remove("show");
@@ -26,6 +24,7 @@ popup.addEventListener("click", (e) => {
 });
 
 /* CURSOR GLOW */
+
 const glow = document.querySelector(".cursor-glow");
 
 document.addEventListener("mousemove", (e) => {
@@ -34,6 +33,7 @@ document.addEventListener("mousemove", (e) => {
 });
 
 /* SCROLL GLOW */
+
 const scrollGlow = document.querySelector(".scroll-glow");
 let scrollTimer;
 
@@ -46,59 +46,60 @@ window.addEventListener("scroll", () => {
 });
 
 /* SHAPE PARALLAX */
+
 const shapes = document.querySelectorAll(".shape");
 
 window.addEventListener("scroll", () => {
   let scroll = window.scrollY;
+
   shapes.forEach((shape, i) => {
+
     let speed = (i + 1) * 0.18;
-    shape.style.transform = `translateY(${scroll * speed}px) rotate(${scroll * 0.05}deg)`;
+
+    shape.style.transform =
+      `translateY(${scroll * speed}px) rotate(${scroll * 0.05}deg)`;
+
   });
 });
 
-
-/* =============================== */
-/* GLASS RAIN EFFECT (NEW CODE) */
-/* =============================== */
+/* GLASS RAIN */
 
 const ctaButton = document.querySelector(".cta");
 const particleLayer = document.querySelector(".particle-layer");
 
 let spawning = false;
 
-function spawnParticle() {
+function spawnParticle(){
 
   const particle = document.createElement("div");
   particle.classList.add("particle");
 
-  const size = Math.random() * 20 + 10;
-  const startX = Math.random() * window.innerWidth;
+  const size = Math.random()*20+10;
+  const startX = Math.random()*window.innerWidth;
 
-  particle.style.width = size + "px";
-  particle.style.height = size + "px";
-  particle.style.left = startX + "px";
-  particle.style.top = "-40px";
-
-  particle.style.transform = `rotate(${Math.random()*360}deg)`;
+  particle.style.width=size+"px";
+  particle.style.height=size+"px";
+  particle.style.left=startX+"px";
+  particle.style.top="-40px";
 
   particleLayer.appendChild(particle);
 
-  let y = -40;
-  let rotation = Math.random()*360;
-  const speed = Math.random()*3 + 2;
-  const rotateSpeed = Math.random()*2 - 1;
+  let y=-40;
+  let rotation=Math.random()*360;
+  const speed=Math.random()*3+2;
+  const rotateSpeed=Math.random()*2-1;
 
   function fall(){
 
-    y += speed;
-    rotation += rotateSpeed;
+    y+=speed;
+    rotation+=rotateSpeed;
 
-    particle.style.top = y + "px";
-    particle.style.transform = `rotate(${rotation}deg)`;
+    particle.style.top=y+"px";
+    particle.style.transform=`rotate(${rotation}deg)`;
 
-    if(y < window.innerHeight + 40){
+    if(y<window.innerHeight+40){
       requestAnimationFrame(fall);
-    } else {
+    }else{
       particle.remove();
     }
 
@@ -114,19 +115,44 @@ function spawnLoop(){
 
   spawnParticle();
 
-  setTimeout(spawnLoop, 80);
+  setTimeout(spawnLoop,80);
 
 }
 
-ctaButton.addEventListener("mouseenter", () => {
+ctaButton.addEventListener("mouseenter",()=>{
 
-  spawning = true;
+  spawning=true;
   spawnLoop();
 
 });
 
-ctaButton.addEventListener("mouseleave", () => {
+ctaButton.addEventListener("mouseleave",()=>{
 
-  spawning = false;
+  spawning=false;
 
+});
+
+/* SCROLL REVEAL */
+
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries)=>{
+
+  entries.forEach(entry=>{
+
+    if(entry.isIntersecting){
+
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+
+    }
+
+  });
+
+},{
+  threshold:0.15
+});
+
+reveals.forEach(el=>{
+  observer.observe(el);
 });
