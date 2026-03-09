@@ -56,3 +56,77 @@ window.addEventListener("scroll", () => {
   });
 });
 
+
+/* =============================== */
+/* GLASS RAIN EFFECT (NEW CODE) */
+/* =============================== */
+
+const ctaButton = document.querySelector(".cta");
+const particleLayer = document.querySelector(".particle-layer");
+
+let spawning = false;
+
+function spawnParticle() {
+
+  const particle = document.createElement("div");
+  particle.classList.add("particle");
+
+  const size = Math.random() * 20 + 10;
+  const startX = Math.random() * window.innerWidth;
+
+  particle.style.width = size + "px";
+  particle.style.height = size + "px";
+  particle.style.left = startX + "px";
+  particle.style.top = "-40px";
+
+  particle.style.transform = `rotate(${Math.random()*360}deg)`;
+
+  particleLayer.appendChild(particle);
+
+  let y = -40;
+  let rotation = Math.random()*360;
+  const speed = Math.random()*3 + 2;
+  const rotateSpeed = Math.random()*2 - 1;
+
+  function fall(){
+
+    y += speed;
+    rotation += rotateSpeed;
+
+    particle.style.top = y + "px";
+    particle.style.transform = `rotate(${rotation}deg)`;
+
+    if(y < window.innerHeight + 40){
+      requestAnimationFrame(fall);
+    } else {
+      particle.remove();
+    }
+
+  }
+
+  fall();
+
+}
+
+function spawnLoop(){
+
+  if(!spawning) return;
+
+  spawnParticle();
+
+  setTimeout(spawnLoop, 80);
+
+}
+
+ctaButton.addEventListener("mouseenter", () => {
+
+  spawning = true;
+  spawnLoop();
+
+});
+
+ctaButton.addEventListener("mouseleave", () => {
+
+  spawning = false;
+
+});
